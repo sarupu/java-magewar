@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Mage {
+public abstract class Mage {
     private String name;
     private int intelligence;
     private int strength;
@@ -9,15 +9,17 @@ public class Mage {
     private int maxHealth;
     private int currentHealth;
     private int knownSpellCount;
-    private ArrayList<Magik> spellList = new ArrayList<>();
+    ArrayList<Magik> knownSpells = new ArrayList<>();
+    abstract void knownSpellGenerator();
 
-    public ArrayList<Magik> getSpellList() {
-        return spellList;
+
+    public void setKnownSpells(ArrayList<Magik> knownSpells) {
+        this.knownSpells.clear();
+        this.knownSpells.addAll(knownSpells);
     }
-
-    static Random rng = new Random();
-    ArrayList<Magik> deneme = new ArrayList<>();
-
+    public ArrayList<Magik> getKnownSpells() {
+        return knownSpells;
+    }
     public String getName() {return name;}
     public int getHaste() {
         return haste;
@@ -28,7 +30,9 @@ public class Mage {
     public void setCurrentHealth(int currentHealth) {
         this.currentHealth = currentHealth;
     }
-
+    public int getKnownSpellCount() {
+        return knownSpellCount;
+    }
 
     public Mage(String name, int intelligence, int strength, int haste, int maxHealth, int knownSpellCount) {
         this.name = name;
@@ -38,7 +42,7 @@ public class Mage {
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
         this.knownSpellCount = knownSpellCount;
-        this.spellList = spellRandomizer();
+//        this.knownSpells = spellRandomizer();
         MyFirstApp.mageList.add(this);
     }
     public void cast(Mage target, Magik spell) {
@@ -56,23 +60,23 @@ public class Mage {
         }
     }
 
-    private ArrayList<Magik> spellRandomizer() {
-        int x = 0;
-        deneme.add(MyFirstApp.spellList.get(rng.nextInt(MyFirstApp.spellList.size())));
-        ArrayList<Magik> deneme2 = new ArrayList<>();
-        while (x != knownSpellCount-1) {
-
-            deneme2.add(MyFirstApp.spellList.get(rng.nextInt(MyFirstApp.spellList.size())));
-            while (deneme.contains(deneme2.get(0))) {
-                deneme2.clear();
-                deneme2.add(MyFirstApp.spellList.get(rng.nextInt(MyFirstApp.spellList.size())));
-            }
-            deneme.add(deneme2.get(0));
-            deneme2.clear();
-            x++;
-        }
-        return  deneme;
-    }
+//    private ArrayList<Magik> spellRandomizer() {
+//        int x = 0;
+//        deneme.add(MyFirstApp.spellList.get(rng.nextInt(MyFirstApp.spellList.size())));
+//        ArrayList<Magik> deneme2 = new ArrayList<>();
+//        while (x != knownSpellCount-1) {
+//
+//            deneme2.add(MyFirstApp.spellList.get(rng.nextInt(MyFirstApp.spellList.size())));
+//            while (deneme.contains(deneme2.get(0))) {
+//                deneme2.clear();
+//                deneme2.add(MyFirstApp.spellList.get(rng.nextInt(MyFirstApp.spellList.size())));
+//            }
+//            deneme.add(deneme2.get(0));
+//            deneme2.clear();
+//            x++;
+//        }
+//        return  deneme;
+//    }
     public static ArrayList<Mage> mageSelector() {
         ArrayList<Mage> mages = new ArrayList<>();
         mages.add(MyFirstApp.mageList.get(rng.nextInt((MyFirstApp.mageList.size()))));
@@ -83,4 +87,6 @@ public class Mage {
         }
         return mages;
     }
+    static Random rng = new Random();
+    ArrayList<Magik> deneme = new ArrayList<>();
 }

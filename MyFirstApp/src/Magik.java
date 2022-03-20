@@ -1,4 +1,4 @@
-public class Magik {
+public abstract class Magik {
     private int damage;
     private int manaCost;
     private double castTime;
@@ -19,6 +19,7 @@ public class Magik {
         this.damage = damage;
         this.manaCost = manaCost;
         this.castTime = castTime;
+        MyFirstApp.spellList.add(this);
 
     }
 

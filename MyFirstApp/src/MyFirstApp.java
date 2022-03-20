@@ -18,7 +18,6 @@ public class MyFirstApp {
         //System.out.println(fire.damage);
         //fireball.cast(8);
 
-
         /*while (true) {
             deneme.add(spellList.get(rng.nextInt(spellList.size())));
             ArrayList<Magik> deneme2 = new ArrayList<>();
@@ -31,11 +30,13 @@ public class MyFirstApp {
             return  deneme;
         }*/
 
-        Mage merto = new Mage("Merto", 9, 4, 6, 100, 2);
-        Mage kamco = new Mage("Kamco", 7, 6, 2, 75, 4);
-        Mage sarupu = new Mage("Sarupu", 7, 6, 10, 110, 4);
+        WaterMage merto = new WaterMage("Merto", 9, 4, 6, 100, 2);
+        FireMage kamco = new FireMage("Kamco", 7, 6, 2, 75, 4);
+        System.out.println(kamco.knownSpells);
+        LightningMage cado = new LightningMage("Cado", 8, 5, 8, 105, 4);
+        WandererMage sarupu = new WandererMage("Sarupu", 7, 6, 10, 110, 4);
 
-        System.out.println(mageList.get(0).getName());
+//        System.out.println(mageList.get(0).getName());
         /*Magik rngSpell = spellList.get(rng.nextInt(spellList.size()));
         Magik rngSpell2 = spellList.get(rng.nextInt(spellList.size()));*/
 
@@ -56,16 +57,16 @@ public class MyFirstApp {
             pauser.nextLine();
 
             if (mage1.getHaste() > mage2.getHaste()) {
-                mage1.cast(mage2, mage1.getSpellList().get(rng.nextInt(mage1.getSpellList().size())));
-                mage2.cast(mage1, mage2.getSpellList().get(rng.nextInt(mage2.getSpellList().size())));
+                mage1.cast(mage2, mage1.getKnownSpells().get(rng.nextInt(mage1.getKnownSpells().size())));
+                mage2.cast(mage1, mage2.getKnownSpells().get(rng.nextInt(mage2.getKnownSpells().size())));
                 if (mage2.getCurrentHealth() <= 0 || mage1.getCurrentHealth() <= 0) {
                     break;
                 }
             }
             else {
-                mage2.cast(mage1, mage2.getSpellList().get(rng.nextInt(mage2.getSpellList().size())));
-//                System.out.println(mage2.getSpellList());
-                mage1.cast(mage2, mage1.getSpellList().get(rng.nextInt(mage1.getSpellList().size())));
+                mage2.cast(mage1, mage2.getKnownSpells().get(rng.nextInt(mage2.getKnownSpells().size())));
+//                System.out.println(mage2.getknownSpells());
+                mage1.cast(mage2, mage1.getKnownSpells().get(rng.nextInt(mage1.getKnownSpells().size())));
             }
                 if (fightingMages.get(0).getCurrentHealth() <= 0 || mage2.getCurrentHealth() <= 0) {
                     break;
