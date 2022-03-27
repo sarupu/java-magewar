@@ -1,10 +1,7 @@
 - 👋 Hi, I’m @sarupu
-- 👀 I’m interested in coding and automation.
-- 🌱 I’m currently learning Uipath and Html
-- 💞️ I’m looking to collaborate on ...
+- 👀 I’m interested in coding and RPA.
+- 🌱 I’m currently participating preparetion class of Kodluyoruz FrontEnd Bootcamp.
 - 📫 How to reach me ======> sarp.tolunay@gmail.com
-- sarp
-- sarp mı? haha ha ha
 
 <!---
 sarupu/sarupu is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
